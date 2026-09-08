@@ -6,6 +6,7 @@ import { Container } from '../common/Container';
 import { Button } from '../common/Button';
 import { cn } from '../../lib/utils';
 import { MobileMenu } from './MobileMenu';
+import logoDark from '../../assets/brand/logo-dark.svg';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,7 +46,7 @@ export const Navbar: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
               <img
-                src="/src/assets/brand/logo-dark.svg"
+                src={logoDark}
                 alt={BRAND_INFO.name}
                 className="h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />

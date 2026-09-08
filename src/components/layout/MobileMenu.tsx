@@ -5,6 +5,7 @@ import { X, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import { NAV_LINKS, BRAND_INFO } from '../../lib/constants';
 import { Button } from '../common/Button';
 import { cn } from '../../lib/utils';
+import logoLight from '../../assets/brand/logo.svg';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -28,7 +29,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <div className="flex items-center justify-between">
             <Link to="/" onClick={onClose}>
               <img
-                src="/src/assets/brand/logo.svg"
+                src={logoLight}
                 alt={BRAND_INFO.name}
                 className="h-8 w-auto object-contain"
               />

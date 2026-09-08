@@ -1,4 +1,6 @@
 import type { CaseStudyData } from '../types/caseStudy';
+import sivaBiryaniReportImage from '../assets/images/case-studies/siva_biryani_report.png';
+import sivaBiryaniProofImage from '../assets/images/case-studies/siva_biryani_proof.png';
 
 export const sivaBiryaniCaseStudy: CaseStudyData = {
   id: 'siva-biryani',
@@ -35,7 +37,7 @@ export const sivaBiryaniCaseStudy: CaseStudyData = {
   strategy: [
     'Hyper-targeted geographic audience segmentation focused exclusively on Karur and surrounding high-density zones.',
     'Creation of 6 distinct visual and video ad formats targeting culinary appeal, urgency, and brand recollection.',
-    'Real-time Meta ad budget bidding optimization to maximize impression velocity while maintaining low cost per thousand impressions (CPM).'
+    'Real-time Meta ad budget bidding optimization to maximize impression velocity while maintaining low cost per thousand impressions (CPM).',
   ],
   creativeDirection: 'Vibrant, appetizing visual food framing combined with clear promotional calls-to-action, high-contrast brand colors, and mobile-first short video creatives.',
   execution: [
@@ -47,11 +49,11 @@ export const sivaBiryaniCaseStudy: CaseStudyData = {
   ],
   screenshots: [
     {
-      src: '/src/assets/images/case-studies/siva_biryani_report.png',
+      src: sivaBiryaniReportImage,
       caption: 'Official Meta Ads Performance Report — Siva Biryani Karur'
     },
     {
-      src: '/src/assets/images/case-studies/siva_biryani_proof.png',
+      src: sivaBiryaniProofImage,
       caption: 'Ad-Wise Performance Breakdown & Campaign Results Proof'
     }
   ]

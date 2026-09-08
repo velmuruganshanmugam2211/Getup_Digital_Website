@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import { BRAND_INFO, NAV_LINKS } from '../../lib/constants';
 import { Container } from '../common/Container';
+import logoLight from '../../assets/brand/logo.svg';
 
 export const Footer: React.FC = () => {
   const serviceLinks = [
@@ -24,7 +25,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-block">
               <img
-                src="/src/assets/brand/logo.svg"
+                src={logoLight}
                 alt={BRAND_INFO.name}
                 className="h-9 w-auto object-contain"
               />

@@ -1,11 +1,17 @@
 import type { ClientItem } from '../types/client';
+import balajiCateringLogo from '../assets/images/works/Balaji_Catering.svg';
+import vigneshwaraInteriorsLogo from '../assets/images/works/Vigneshwara_interiors.svg';
+import exterimeGymLogo from '../assets/images/works/Exterime_Gym.svg';
+import senthurLogo from '../assets/images/works/Senthur.svg';
+import shivaniLogo from '../assets/images/works/Shivani.svg';
+import vevLogo from '../assets/images/works/VEV.svg';
 
 export const clientData: ClientItem[] = [
   {
     id: 'balaji-catering',
     name: 'Balaji Catering',
     industry: 'Catering & Events',
-    logo: '/src/assets/images/works/Balaji_Catering.svg',
+    logo: balajiCateringLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',
@@ -15,7 +21,7 @@ export const clientData: ClientItem[] = [
     id: 'client-03',
     name: 'Vigneshwara Interiors',
     industry: 'Interiors',
-    logo: '/src/assets/images/works/Vigneshwara_Interiors.svg',
+    logo: vigneshwaraInteriorsLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',
@@ -25,7 +31,7 @@ export const clientData: ClientItem[] = [
     id: 'client-04',
     name: 'Enterime Gym',
     industry: 'Gym',
-    logo: '/src/assets/images/works/Exterime_Gym.svg',
+    logo: exterimeGymLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',
@@ -35,7 +41,7 @@ export const clientData: ClientItem[] = [
     id: 'client-04',
     name: 'Enterime Gym',
     industry: 'Gym',
-    logo: '/src/assets/images/works/Senthur.svg',
+    logo: senthurLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',
@@ -45,7 +51,7 @@ export const clientData: ClientItem[] = [
     id: 'client-04',
     name: 'Enterime Gym',
     industry: 'Gym',
-    logo: '/src/assets/images/works/Shivani.svg',
+    logo: shivaniLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',
@@ -55,7 +61,7 @@ export const clientData: ClientItem[] = [
     id: 'client-04',
     name: 'Enterime Gym',
     industry: 'Gym',
-    logo: '/src/assets/images/works/VEV.svg',
+    logo: vevLogo,
     hasLogo: true,
     featuredProject: 'Complete Brand & Event Marketing',
     metric: 'Full Visual Identity',

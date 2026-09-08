@@ -1,4 +1,12 @@
 import type { ServiceItem } from '../types/service';
+import smImage from '../assets/images/works/SM.jpg';
+import socialMediaStackImage from '../assets/images/works/social_media_stack.png';
+import sivaBiryaniReportImage from '../assets/images/case-studies/siva_biryani_report.png';
+import influencerMarketingImage from '../assets/images/works/influencer_marketing.png';
+import aiVideosImage from '../assets/images/works/ai_videos.png';
+import balajiCateringImage from '../assets/images/works/balaji_catering.png';
+import aiContentCatalogueImage from '../assets/images/works/ai_content_catalogue.png';
+import dashboardMetricsImage from '../assets/images/hero/dashboard_metrics.png';
 
 export const servicesData: ServiceItem[] = [
   {
@@ -13,7 +21,7 @@ export const servicesData: ServiceItem[] = [
       'Audience Engagement & Growth',
       'Platform Optimization (Instagram, Facebook, LinkedIn)'
     ],
-    image: '/src/assets/images/works/SM.jpg',
+    image: smImage,
     href: '/services#social-media-marketing',
     iconName: 'Share2'
   },
@@ -29,7 +37,7 @@ export const servicesData: ServiceItem[] = [
       'Promotional Banners & Stories',
       'Visual Identity Alignment'
     ],
-    image: '/src/assets/images/works/social_media_stack.png',
+    image: socialMediaStackImage,
     href: '/services#social-media-design',
     iconName: 'Palette'
   },
@@ -45,7 +53,7 @@ export const servicesData: ServiceItem[] = [
       'Target Audience Segmentation',
       'Performance Tracking & Optimization'
     ],
-    image: '/src/assets/images/case-studies/siva_biryani_report.png',
+    image: sivaBiryaniReportImage,
     href: '/services#paid-advertising',
     iconName: 'Target'
   },
@@ -61,7 +69,7 @@ export const servicesData: ServiceItem[] = [
       'Product Integration & Promotions',
       'Performance Analytics'
     ],
-    image: '/src/assets/images/works/influencer_marketing.png',
+    image: influencerMarketingImage,
     href: '/services#influencer-marketing',
     iconName: 'Users'
   },
@@ -77,7 +85,7 @@ export const servicesData: ServiceItem[] = [
       'Scripting & Storyboarding',
       'Trend-Driven Content'
     ],
-    image: '/src/assets/images/works/ai_videos.png',
+    image: aiVideosImage,
     href: '/services#video-reels',
     iconName: 'Video'
   },
@@ -93,7 +101,7 @@ export const servicesData: ServiceItem[] = [
       'Advertising Campaign Strategy',
       'Market & Competitor Analysis'
     ],
-    image: '/src/assets/images/works/balaji_catering.png',
+    image: balajiCateringImage,
     href: '/services#branding-advertising',
     iconName: 'Sparkles'
   },
@@ -109,7 +117,7 @@ export const servicesData: ServiceItem[] = [
       'AI Logos & Brand Visuals',
       'Festival & Seasonal Graphics'
     ],
-    image: '/src/assets/images/works/ai_content_catalogue.png',
+    image: aiContentCatalogueImage,
     href: '/services#ai-content-catalogue',
     iconName: 'Bot'
   },
@@ -125,7 +133,7 @@ export const servicesData: ServiceItem[] = [
       'Conversion Rate Optimization',
       'SEO & Performance Tuning'
     ],
-    image: '/src/assets/images/hero/dashboard_metrics.png',
+    image: dashboardMetricsImage,
     href: '/services#website-design',
     iconName: 'Globe'
   },
@@ -141,7 +149,7 @@ export const servicesData: ServiceItem[] = [
       'Monthly Analytics & Reporting',
       'Dedicated Account Management'
     ],
-    image: '/src/assets/images/works/social_media_stack.png',
+    image: socialMediaStackImage,
     href: '/services#complete-digital-marketing',
     iconName: 'Zap'
   }
