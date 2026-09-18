@@ -1,24 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../common/Container';
-import { SectionHeading } from '../common/SectionHeading';
 import { teamData } from '../../data/teamData';
 import { Button } from '../common/Button';
+import { Users, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export const TeamPreview: React.FC = () => {
   return (
-    <section className="py-20 sm:py-28 bg-white">
-      <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <SectionHeading
-            label="05 — OUR TEAM"
-            title="Meet Our Expert Team"
-            description="Creative thinkers, operations specialists, and digital marketers dedicated to your growth."
-            className="mb-0 max-w-xl"
-          />
-          <Button href="/team" variant="outline" size="md" showArrow className="mt-6 md:mt-0">
-            View Team Profiles
-          </Button>
+    <section className="py-20 sm:py-28 bg-[#FFFFFF] border-b border-[#E5E7E5] relative overflow-hidden">
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#008000]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#008000]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <Container className="relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#E5E7E5]">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#008000] mb-3 bg-[#008000]/10 px-3.5 py-1.5 rounded-full border border-[#008000]/20">
+             
+              <span>THE LEADERSHIP & CREATORS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
+              Meet the Strategists Behind Your Growth
+            </h2>
+            <p className="mt-3 text-base text-[#666666] leading-relaxed">
+              Hands-on founders and growth operators dedicated to executing your brand vision with speed, creativity, and measurable ROI.
+            </p>
+          </div>
+
+          <div className="mt-6 md:mt-0">
+            <Button href="/team" variant="outline" size="md" showArrow arrowType="up-right">
+              View All Leadership Profiles
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -29,39 +42,66 @@ export const TeamPreview: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-[#F6F7F5] rounded-2xl p-6 sm:p-8 border border-[#E5E7E5] hover:border-[#008000] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E5E7E5] hover:border-[#008000]/50 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
-                {/* Member Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 rounded-full bg-[#111111] text-white flex items-center justify-center text-xl font-bold border-2 border-[#008000]">
-                    {member.name.charAt(0)}
+                {/* Large Hero Portrait Showcase */}
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-b from-[#F2F4F2] to-[#E5E9E5] border border-[#E5E7E5] shadow-xs group-hover:shadow-md transition-all duration-300">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#111111] text-white flex items-center justify-center text-5xl font-black">
+                      {member.name.charAt(0)}
+                    </div>
+                  )}
+
+                  {/* Dark Glassmorphic Founder Badge */}
+                  <div className="absolute top-3.5 left-3.5 bg-[#111111]/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#008000] animate-pulse" />
+                    <span>Founder</span>
                   </div>
-                  <span className="text-xs font-mono font-semibold text-[#008000] bg-[#008000]/10 px-3 py-1 rounded-full">
+
+                  {/* Experience Badge */}
+                  <div className="absolute bottom-3.5 right-3.5 bg-white/95 backdrop-blur-md text-[#111111] text-[11px] font-bold px-3 py-1.5 rounded-full border border-white/80 shadow-md">
                     {member.experience}
-                  </span>
+                  </div>
                 </div>
 
                 {/* Name & Role */}
-                <h3 className="text-2xl font-bold text-[#111111] group-hover:text-[#008000] transition-colors">
-                  {member.name}
-                </h3>
-                <div className="text-xs font-semibold text-[#008000] uppercase tracking-wider mb-4">
-                  {member.role}
+                <div className="mb-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-black text-[#111111] tracking-tight group-hover:text-[#008000] transition-colors">
+                      {member.name}
+                    </h3>
+                    <div className="w-8 h-8 rounded-full bg-[#F6F7F5] border border-[#E5E7E5] flex items-center justify-center text-[#111111] group-hover:bg-[#008000] group-hover:text-white group-hover:border-[#008000] transition-all duration-300">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-xs font-bold text-[#008000] uppercase tracking-wider mt-1">
+                    {member.role}
+                  </div>
                 </div>
 
-                <p className="text-xs text-[#6B7280] leading-relaxed mb-6">
+                {/* Bio Description */}
+                <p className="text-xs sm:text-sm text-[#555555] leading-relaxed mb-6">
                   {member.description}
                 </p>
 
-                {/* Skills */}
-                <div className="space-y-2 mb-6">
-                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#111111]">Key Expertise:</h4>
+                {/* Core Specialties */}
+                <div className="space-y-2.5 mb-6">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#111111] flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#008000]" />
+                    <span>Core Specialties:</span>
+                  </div>
                   <div className="flex flex-wrap gap-1.5">
                     {member.skills.map((skill, i) => (
                       <span
                         key={i}
-                        className="text-[11px] bg-white border border-[#E5E7E5] px-2.5 py-1 rounded-md text-[#222222] font-medium"
+                        className="text-xs bg-[#F8FAF8] border border-[#E5E7E5] px-3 py-1.5 rounded-xl text-[#222222] font-medium shadow-2xs group-hover:border-[#008000]/30 transition-colors"
                       >
                         {skill}
                       </span>
@@ -70,9 +110,16 @@ export const TeamPreview: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E7E5] flex items-center justify-between text-xs text-[#6B7280]">
-                <span>GETUP TEAM</span>
-                <span className="w-2 h-2 rounded-full bg-[#008000]" />
+              {/* Bottom Lead Status */}
+              <div className="pt-4 border-t border-[#E5E7E5] flex items-center justify-between text-xs text-[#777777]">
+                <span className="flex items-center gap-1.5 font-semibold text-[#222222]">
+                  <CheckCircle2 className="w-4 h-4 text-[#008000]" />
+                  Dedicated Account Lead
+                </span>
+                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#008000]">
+                  Active Sprint
+                  <span className="w-2 h-2 rounded-full bg-[#008000]" />
+                </span>
               </div>
             </motion.div>
           ))}

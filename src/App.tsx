@@ -4,20 +4,22 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Services } from './pages/Services';
-import { Clients } from './pages/Clients';
-import { Works } from './pages/Works';
-import { SivaBiryaniCaseStudy } from './pages/SivaBiryaniCaseStudy';
-import { Team } from './pages/Team';
-import { Contact } from './pages/Contact';
+import {
+  Home,
+  About,
+  Services,
+  Clients,
+  Works,
+  SivaBiryaniCaseStudy,
+  Team,
+  Contact,
+} from './pages';
 
 export const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-white text-[#222222] font-sans antialiased selection:bg-[#008000] selection:text-white">
+      <div className="flex flex-col min-h-screen bg-white text-[#111111] font-poppins antialiased selection:bg-[#008000] selection:text-white">
         <Navbar />
         <div className="flex-grow">
           <Routes>

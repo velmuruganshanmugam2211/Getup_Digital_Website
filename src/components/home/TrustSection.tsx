@@ -1,84 +1,69 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { Container } from "../common/Container";
 import { clientData } from "../../data/clientData";
-import { SectionHeading } from "../common/SectionHeading";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const TrustSection: React.FC = () => {
-  return (
-    <section className="py-16 bg-[#F6F7F5] border-y border-[#E5E7E5]">
-      <Container>
-        <div className="flex flex-col items-center  md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#E5E7E5]">
-          <div>
-            <SectionHeading
-            title="Trusted to Build, Grow & Scale Brands across the 7 Clients"
-            description="Working with ambitious businesses to create stronger digital identities and measurable growth."
-          />
-          </div>
-          {/* <p className="text-sm text-[#6B7280] max-w-sm mt-3 md:mt-0 leading-relaxed">
-            Working with ambitious businesses to create stronger digital identities and measurable growth.
-          </p> */}
-        </div>
+  // Double client data for seamless infinite marquee loop
+  const marqueeClients = [...clientData, ...clientData];
 
-        {/* 7-Client Showcase Grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {clientData.map((client, index) => (
-            <motion.div
-              key={client.id}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="
-    group
-    aspect-square
-    w-40
-    rounded-full
-    bg-white
-    border border-slate-200
-    flex items-center justify-center
-    p-7
-    transition-all duration-500
-    hover:scale-105
-    hover:border-[#008000]/40
-    hover:shadow-[0_12px_35px_rgba(0,128,0,0.15)]
-  "
+  return (
+    <section className="py-16 md:py-24 bg-[#F8FAF8] border-b border-[#E5E7E5] overflow-hidden">
+      <Container>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#E5E7E5]">
+          <div>
+            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#008000] mb-2 bg-[#008000]/10 px-3 py-1 rounded-full border border-[#008000]/20">
+            
+              <span>PROVEN CLIENT TRACK RECORD</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] tracking-tight">
+              Trusted by Ambitious Brands Across Key Industries
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-[#666666] max-w-xl">
+              From local culinary landmarks to corporate B2B enterprises, we build the marketing engines that drive repeatable revenue.
+            </p>
+          </div>
+
+          <Link
+            to="/clients"
+            className="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#008000] hover:text-[#006600] mt-4 md:mt-0 transition-colors group"
+          >
+            <span>View All Client Case Studies</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
+      </Container>
+
+      {/* Infinite Smooth Logo Marquee Strip */}
+      <div className="relative w-full overflow-hidden py-4">
+        <div className="animate-marquee flex items-center space-x-6 sm:space-x-8">
+          {marqueeClients.map((client, idx) => (
+            <div
+              key={`${client.id}-${idx}`}
+              className="group flex items-center space-x-4 bg-white border border-[#E5E7E5] rounded-2xl px-6 py-4 shadow-xs hover:border-[#008000]/40 hover:shadow-md transition-all duration-300 shrink-0 w-64 sm:w-72"
             >
-              {client.hasLogo && client.logo ? (
+              <div className="w-20 h-20 rounded-xl bg-[#F8FAF8] border border-neutral-100 flex items-center justify-center p-2 shrink-0">
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="
-                    max-w-full
-                    max-h-full
-                    object-contain
-                    grayscale
-                    group-hover:grayscale-0
-                    transition-all duration-500
-                  "
+                  className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
-              ) : (
-                <div className="text-center p-2">
-                  <span className="text-xs font-bold text-[#111111] group-hover:text-[#008000] transition-colors line-clamp-2">
-                    {client.name}
-                  </span>
-                  <span className="text-[9px] text-[#6B7280] block mt-0.5">{client.industry}</span>
+              </div>
+              <div className="overflow-hidden">
+                <div className="text-sm font-bold text-[#111111] truncate group-hover:text-[#008000] transition-colors">
+                  {client.name}
                 </div>
-              )}
-            </motion.div>
+                <div className="text-xs text-[#777777] truncate font-medium">
+                  {client.industry}
+                </div>
+                <div className="text-[11px] font-semibold text-[#008000] mt-0.5">
+                  {client.metric}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-
-        {/* <div className="mt-8 text-center">
-          <Link
-            to="/clients"
-            className="inline-flex items-center text-xs font-semibold text-[#111111] hover:text-[#008000] transition-colors"
-          >
-            <span>Explore all 7 partner clients & results</span>
-            <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#008000]" />
-          </Link>
-        </div> */}
-      </Container>
+      </div>
     </section>
   );
 };

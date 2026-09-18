@@ -2,20 +2,25 @@
 
 @layer base {
   :root {
+    --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     --color-primary: #008000;
     --color-primary-hover: #006600;
     --color-primary-light: #e6f2e6;
     --color-dark: #111111;
-    --color-text: #222222;
-    --color-muted: #6B7280;
+    --color-text: #1a1a1a;
+    --color-muted: #666666;
     --color-bg: #FFFFFF;
-    --color-bg-secondary: #F6F7F5;
+    --color-bg-secondary: #F8FAF8;
     --color-border: #E5E7E5;
+  }
+
+  *, *::before, *::after {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Poppins', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
@@ -26,10 +31,26 @@
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  button, input, textarea, select {
+    font-family: 'Poppins', sans-serif !important;
   }
 }
 
-/* Custom Utilities & Animations */
+/* Typography Utility */
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Custom Background Patterns */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
@@ -42,6 +63,7 @@
   background-size: 24px 24px;
 }
 
+/* Link Underline Micro-interaction */
 .link-underline {
   position: relative;
 }
@@ -54,7 +76,7 @@
   bottom: -2px;
   left: 0;
   background-color: #008000;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s cubic-bezier(0.87, 0, 0.13, 1);
 }
 
 .link-underline:hover::after {
@@ -63,18 +85,64 @@
 
 /* Glassmorphism */
 .glass-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-/* Custom scrollbar */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 229, 0.8);
+}
+
+/* Infinite Marquee Animation for Client Showcase */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Custom modern scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F6F7F5;
+  background: #F8FAF8;
 }
 
 ::-webkit-scrollbar-thumb {

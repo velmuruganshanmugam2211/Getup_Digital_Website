@@ -5,6 +5,7 @@ export const BRAND_INFO = {
   email: 'getupdigitalsolution@gmail.com',
   phone: '8778858467',
   phoneFormatted: '+91 87788 58467',
+  whatsapp: '918778858467',
   location: 'Erode, Tamil Nadu, India',
   description: 'GETUP Digital is a creative digital marketing agency dedicated to helping businesses grow their online presence, attract more customers, and achieve measurable results through innovative marketing strategies.'
 };

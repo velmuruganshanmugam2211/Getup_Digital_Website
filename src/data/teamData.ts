@@ -36,9 +36,9 @@ export const teamData: TeamMember[] = [
     role: 'Creative & Design Lead',
     experience: '2 Years Experience',
     skills: [
-      'UI/UX Design',
-      'Graphic Design',
-      'AI Content Poster & Video Specialist'
+      'UI/UX Design & Graphic Design',
+      'Website and Web Applications',
+      'AI Poster & Video Editor',
     ],
     description: 'Drives the artistic direction and user interface aesthetics for Getup Digital. Combines UI/UX design fundamentals with modern AI video and poster creative tools.',
     image: velmuruganImg
