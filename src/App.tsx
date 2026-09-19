@@ -13,6 +13,7 @@ import {
   SivaBiryaniCaseStudy,
   Team,
   Contact,
+  Careers,
   DesignSystemPage,
 } from './pages';
 import { ToastProvider } from './design-system';
@@ -41,7 +42,7 @@ export const App: React.FC = () => {
                     <Route path="/works" element={<Works />} />
                     <Route path="/case-study/siva-biryani" element={<SivaBiryaniCaseStudy />} />
                     <Route path="/team" element={<Team />} />
-                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/contact" element={<Contact />} />`n                    <Route path="/careers" element={<Careers />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                   </Routes>
                 </div>
@@ -56,3 +57,4 @@ export const App: React.FC = () => {
 };
 
 export default App;
+
