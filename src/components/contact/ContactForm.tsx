@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Button } from '../common/Button';
-import { CheckCircle2, AlertCircle, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, AlertCircle, MessageCircle, Clock, ShieldCheck, Check } from 'lucide-react';
 import { servicesData } from '../../data/serviceData';
-import { BRAND_INFO } from '../../lib/constants';
+import { BRAND_INFO, GOOGLE_SHEETS_CONFIG } from '../../lib/constants';
 
 const BUDGET_RANGES = [
-  '₹25,000 - ₹50,000 / mo',
-  '₹50,000 - ₹1,00,000 / mo',
-  '₹1,00,000 - ₹2,50,000 / mo',
-  '₹2,50,000+ / Custom Scope',
+  '₹5,000 - ₹10,000 / mon',
+  '₹10,000 - ₹20,000 / mon',
+  '₹20,000 - ₹30,000 / mon',
+  '₹30,000 - ₹50,000 / mon',
+  '₹50,000 - ₹1,00,000 / mon',
+  '₹1,00,000+ / Custom Scope',
 ];
 
 export const ContactForm: React.FC = () => {
@@ -17,12 +19,13 @@ export const ContactForm: React.FC = () => {
     company: '',
     phone: '',
     email: '',
-    service: 'Social Media Marketing',
-    budget: '₹50,000 - ₹1,00,000 / mo',
+    services: [] as string[],
+    budget: '',
     details: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -30,22 +33,80 @@ export const ContactForm: React.FC = () => {
     setError('');
   };
 
-  const handleServiceSelect = (serviceTitle: string) => {
-    setFormData({ ...formData, service: serviceTitle });
+  const handleServiceToggle = (serviceTitle: string) => {
+    setFormData(prev => {
+      const exists = prev.services.includes(serviceTitle);
+      const nextServices = exists
+        ? prev.services.filter(title => title !== serviceTitle)
+        : [...prev.services, serviceTitle];
+      return { ...prev, services: nextServices };
+    });
+    setError('');
+  };
+
+  const handleToggleAllServices = () => {
+    setFormData(prev => {
+      const allSelected = prev.services.length === servicesData.length;
+      return {
+        ...prev,
+        services: allSelected ? [] : servicesData.map(s => s.title)
+      };
+    });
+    setError('');
   };
 
   const handleBudgetSelect = (budgetRange: string) => {
     setFormData({ ...formData, budget: budgetRange });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
       setError('Please fill in your Name, Email, and Phone Number.');
       return;
     }
 
-    setSubmitted(true);
+    if (formData.services.length === 0) {
+      setError('Please select at least one service or objective.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const scriptUrl = GOOGLE_SHEETS_CONFIG.scriptUrl;
+
+      if (scriptUrl) {
+        // Send to Google Sheets Web App
+        const payload = new URLSearchParams();
+        payload.append('name', formData.name);
+        payload.append('company', formData.company || 'Not provided');
+        payload.append('phone', formData.phone);
+        payload.append('email', formData.email);
+        payload.append('service', formData.services.join(', '));
+        payload.append('budget', formData.budget);
+        payload.append('details', formData.details || 'None');
+        payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: payload.toString(),
+        });
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Google Sheets submission error:', err);
+      // Fallback: still show submission to user
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -62,13 +123,24 @@ export const ContactForm: React.FC = () => {
             We'll Connect Within 2 Hours
           </h3>
           <p className="text-sm text-[#666666] max-w-md mx-auto leading-relaxed">
-            Thank you, <strong>{formData.name}</strong>. Our growth team is reviewing your requirements for <strong>{formData.service}</strong> and will reach out shortly.
+            Thank you, <strong>{formData.name}</strong>. Our growth team is reviewing your requirements for{' '}
+            <strong className="text-[#008000]">{formData.services.join(', ') || 'your project'}</strong>{' '}
+            and will reach out shortly.
           </p>
         </div>
 
-        <div className="p-4 bg-white rounded-2xl border border-[#E5E7E5] max-w-sm mx-auto text-left text-xs space-y-1 text-[#555555]">
-          <div><strong>Selected Service:</strong> {formData.service}</div>
-          <div><strong>Budget Tier:</strong> {formData.budget}</div>
+        <div className="p-4 bg-white rounded-2xl border border-[#E5E7E5] max-w-md mx-auto text-left text-xs space-y-2.5 text-[#555555]">
+          <div>
+            <strong>Selected Services ({formData.services.length}):</strong>
+            <div className="flex flex-wrap gap-1.5 mt-1.5">
+              {formData.services.map((svc) => (
+                <span key={svc} className="bg-[#008000]/10 text-[#008000] px-2 py-0.5 rounded-md font-medium text-[11px] border border-[#008000]/20">
+                  {svc}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div><strong>Budget Tier:</strong> {formData.budget || 'Not specified'}</div>
           <div><strong>Direct Contact:</strong> {formData.phone}</div>
         </div>
 
@@ -81,8 +153,8 @@ export const ContactForm: React.FC = () => {
                 company: '',
                 phone: '',
                 email: '',
-                service: 'Social Media Marketing',
-                budget: '₹50,000 - ₹1,00,000 / mo',
+                services: [],
+                budget: '',
                 details: ''
               });
             }}
@@ -126,25 +198,50 @@ export const ContactForm: React.FC = () => {
         </div>
       )}
 
-      {/* Service Selection Interactive Pills */}
-      <div className="space-y-2.5">
-        <label className="block text-xs font-bold uppercase tracking-wider text-[#111111]">
-          1. Select Your Primary Objective
-        </label>
+      {/* Service Selection Interactive Pills (Multi-Select) */}
+      <div className="space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#111111]">
+              1. Select Your Required Services
+            </label>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#008000] bg-[#008000]/10 px-2 py-0.5 rounded-full border border-[#008000]/20">
+              Multi-Select
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {formData.services.length > 0 && (
+              <span className="text-xs font-semibold text-[#008000] bg-[#008000]/10 px-2 py-0.5 rounded-full">
+                {formData.services.length} selected
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={handleToggleAllServices}
+              className="text-xs font-semibold text-[#008000] hover:underline cursor-pointer"
+            >
+              {formData.services.length === servicesData.length ? 'Deselect All' : 'Select All'}
+            </button>
+          </div>
+        </div>
+
         <div className="flex flex-wrap gap-2">
           {servicesData.map((s) => {
-            const isSelected = formData.service === s.title;
+            const isSelected = formData.services.includes(s.title);
             return (
               <button
                 key={s.id}
                 type="button"
-                onClick={() => handleServiceSelect(s.title)}
-                className={`text-xs px-3.5 py-2 rounded-xl border transition-all font-medium cursor-pointer text-left ${isSelected
-                    ? 'bg-[#008000] text-white border-[#008000] shadow-xs'
-                    : 'bg-[#F8FAF8] text-[#333333] border-[#E5E7E5] hover:border-[#008000]/40'
-                  }`}
+                onClick={() => handleServiceToggle(s.title)}
+                className={`text-xs px-3.5 py-2 rounded-xl border transition-all font-medium cursor-pointer text-left inline-flex items-center gap-1.5 select-none ${
+                  isSelected
+                    ? 'bg-[#008000] text-white border-[#008000] shadow-sm ring-2 ring-[#008000]/20'
+                    : 'bg-[#F8FAF8] text-[#333333] border-[#E5E7E5] hover:border-[#008000]/40 hover:bg-neutral-50'
+                }`}
               >
-                {s.title}
+                {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[2.5]" />}
+                <span>{s.title}</span>
               </button>
             );
           })}
@@ -259,8 +356,15 @@ export const ContactForm: React.FC = () => {
       </div>
 
       <div className="space-y-3 pt-2">
-        <Button type="submit" variant="primary" size="lg" className="w-full" showArrow>
-          Submit Growth Inquiry
+        <Button
+          type="submit"
+          variant="primary"
+          size="lg"
+          className="w-full"
+          showArrow={!isSubmitting}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Saving to Database...' : 'Submit Growth Inquiry'}
         </Button>
 
         <div className="flex items-center justify-center space-x-4 text-xs text-[#777777] pt-2">

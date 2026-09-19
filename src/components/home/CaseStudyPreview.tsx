@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { Container } from '../common/Container';
 import { Button } from '../common/Button';
 import { sivaBiryaniCaseStudy } from '../../data/caseStudyData';

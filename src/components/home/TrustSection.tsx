@@ -1,6 +1,6 @@
 import { Container } from "../common/Container";
 import { clientData } from "../../data/clientData";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const TrustSection: React.FC = () => {

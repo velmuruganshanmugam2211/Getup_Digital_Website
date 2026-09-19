@@ -6,3 +6,4 @@ export { Works } from './works';
 export { SivaBiryaniCaseStudy } from './case-study';
 export { Team } from './team';
 export { Contact } from './contact';
+export { DesignSystemPage } from './design-system';

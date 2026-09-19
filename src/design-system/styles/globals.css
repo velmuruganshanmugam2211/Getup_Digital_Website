@@ -1,0 +1,47 @@
+/**
+ * GETUP DESIGN SYSTEM (GDS) v1.0
+ * Global CSS & Utilities
+ */
+
+@import './tokens.css';
+@import './fonts.css';
+
+/* Focus Ring Accessibility Utility */
+.gds-focus-ring {
+  outline: none;
+}
+.gds-focus-ring:focus-visible {
+  outline: 2px solid var(--gds-color-primary);
+  outline-offset: 2px;
+}
+
+/* Glassmorphism Surface */
+.gds-surface-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .gds-surface-glass {
+  background: rgba(21, 29, 21, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Dot Pattern Background */
+.gds-bg-dots {
+  background-image: radial-gradient(var(--gds-color-border) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Card Hover Elevation */
+.gds-card-hover {
+  transition: transform var(--gds-duration-normal) var(--gds-ease-spring),
+              box-shadow var(--gds-duration-normal) var(--gds-ease-default),
+              border-color var(--gds-duration-normal) var(--gds-ease-default);
+}
+.gds-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gds-shadow-card);
+  border-color: var(--gds-color-primary-muted);
+}

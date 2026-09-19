@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Container } from "../common/Container";
-import { CheckCircle2, Sparkles, TrendingUp, ShieldCheck, Clock } from "lucide-react";
+import { CheckCircle2, TrendingUp, ShieldCheck, Clock } from "lucide-react";
 import { Button } from "../common/Button";
 
 export const WhyGetup: React.FC = () => {

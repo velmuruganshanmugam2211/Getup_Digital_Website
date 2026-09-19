@@ -1,0 +1,133 @@
+/**
+ * GETUP DESIGN SYSTEM (GDS) v1.0
+ * CSS Variables & Theme Definition
+ */
+
+:root {
+  /* Brand Green Scale */
+  --gds-color-primary-50: #F0FDF4;
+  --gds-color-primary-100: #DCFCE7;
+  --gds-color-primary-200: #BBF7D0;
+  --gds-color-primary-300: #86EFAC;
+  --gds-color-primary-400: #4ADE80;
+  --gds-color-primary-500: #008000;
+  --gds-color-primary-600: #007300;
+  --gds-color-primary-700: #005900;
+  --gds-color-primary-800: #004700;
+  --gds-color-primary-900: #003300;
+  --gds-color-primary-950: #001F00;
+
+  /* Semantic Colors - Light Theme Default */
+  --gds-color-primary: #008000;
+  --gds-color-primary-hover: #007300;
+  --gds-color-primary-active: #005900;
+  --gds-color-primary-subtle: #F0FDF4;
+  --gds-color-primary-muted: #BBF7D0;
+
+  /* Backgrounds & Surfaces */
+  --gds-color-background: #FFFFFF;
+  --gds-color-background-secondary: #F8FAF8;
+  --gds-color-surface: #FFFFFF;
+  --gds-color-surface-elevated: #FFFFFF;
+  --gds-color-surface-sunken: #F0F2F0;
+
+  /* Text & Typography */
+  --gds-color-text-primary: #111111;
+  --gds-color-text-secondary: #555555;
+  --gds-color-text-muted: #6B7280;
+  --gds-color-text-disabled: #9CA3AF;
+  --gds-color-text-inverse: #FFFFFF;
+
+  /* Borders */
+  --gds-color-border: #E5E7E5;
+  --gds-color-border-subtle: #F0F2F0;
+  --gds-color-border-strong: #CBD5E1;
+
+  /* Status Colors */
+  --gds-color-success: #008000;
+  --gds-color-warning: #F59E0B;
+  --gds-color-error: #EF4444;
+  --gds-color-info: #0284C7;
+
+  /* Spacing */
+  --gds-space-1: 4px;
+  --gds-space-2: 8px;
+  --gds-space-3: 12px;
+  --gds-space-4: 16px;
+  --gds-space-5: 20px;
+  --gds-space-6: 24px;
+  --gds-space-8: 32px;
+  --gds-space-10: 40px;
+  --gds-space-12: 48px;
+  --gds-space-14: 56px;
+  --gds-space-16: 64px;
+  --gds-space-20: 80px;
+  --gds-space-24: 96px;
+  --gds-space-30: 120px;
+  --gds-space-32: 128px;
+  --gds-space-40: 160px;
+
+  /* Border Radius */
+  --gds-radius-none: 0px;
+  --gds-radius-xs: 4px;
+  --gds-radius-sm: 6px;
+  --gds-radius-md: 8px;
+  --gds-radius-lg: 12px;
+  --gds-radius-xl: 16px;
+  --gds-radius-2xl: 24px;
+  --gds-radius-full: 9999px;
+
+  /* Shadows */
+  --gds-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --gds-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+  --gds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --gds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --gds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --gds-shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --gds-shadow-primary: 0 4px 14px 0 rgba(0, 128, 0, 0.25);
+  --gds-shadow-floating: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Typography */
+  --gds-font-family-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --gds-font-family-mono: 'JetBrains Mono', monospace;
+
+  /* Motion */
+  --gds-duration-fast: 150ms;
+  --gds-duration-normal: 200ms;
+  --gds-duration-slow: 300ms;
+  --gds-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --gds-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Tokens (Authentic Getup Charcoal-Green) */
+.dark, [data-theme="dark"] {
+  --gds-color-primary: #00A800;
+  --gds-color-primary-hover: #00BF00;
+  --gds-color-primary-active: #008000;
+  --gds-color-primary-subtle: rgba(0, 128, 0, 0.15);
+  --gds-color-primary-muted: rgba(0, 128, 0, 0.35);
+
+  --gds-color-background: #0B0F0B;
+  --gds-color-background-secondary: #111711;
+  --gds-color-surface: #151D15;
+  --gds-color-surface-elevated: #1B241B;
+  --gds-color-surface-sunken: #0B0F0B;
+
+  --gds-color-text-primary: #F3F4F6;
+  --gds-color-text-secondary: #D1D5DB;
+  --gds-color-text-muted: #9CA3AF;
+  --gds-color-text-disabled: #6B7280;
+  --gds-color-text-inverse: #111111;
+
+  --gds-color-border: #263426;
+  --gds-color-border-subtle: #1B241B;
+  --gds-color-border-strong: #374737;
+
+  --gds-color-success: #10B981;
+  --gds-color-warning: #FBBF24;
+  --gds-color-error: #F87171;
+  --gds-color-info: #38BDF8;
+
+  --gds-shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
+  --gds-shadow-primary: 0 4px 20px 0 rgba(0, 168, 0, 0.3);
+}

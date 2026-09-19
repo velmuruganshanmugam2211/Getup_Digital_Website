@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Container } from '../common/Container';
 import { teamData } from '../../data/teamData';
 import { Button } from '../common/Button';
-import { Users, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
+import { CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export const TeamPreview: React.FC = () => {
   return (

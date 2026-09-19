@@ -122,24 +122,56 @@ export const servicesData: ServiceItem[] = [
     iconName: 'Bot'
   },
   {
-    id: 'website-design',
+    id: 'website-web-app',
     number: '08',
-    title: 'Website Design',
-    shortDescription: 'Design modern digital experiences that turn your online presence into a powerful business asset.',
-    fullDescription: 'Custom, high-converting corporate websites, landing pages, and interactive digital interfaces optimized for speed, mobile responsiveness, and SEO.',
+    title: 'Website & Web App Development',
+    shortDescription: 'Design and develop high-speed responsive websites, e-commerce stores, and custom full-stack web applications.',
+    fullDescription: 'From high-converting corporate websites to full-stack web applications and client portals, we build high-performance digital platforms using modern web technologies optimized for speed, security, and conversion.',
     capabilities: [
-      'UI/UX Design & Prototyping',
-      'Responsive Web Architecture',
-      'Conversion Rate Optimization',
-      'SEO & Performance Tuning'
+      'Full-Stack Web App Development',
+      'High-Converting Corporate Websites',
+      'E-Commerce & Online Storefronts',
+      'UI/UX Prototyping & SEO Tuning'
     ],
     image: dashboardMetricsImage,
-    href: '/services#website-design',
-    iconName: 'Globe'
+    href: '/services#website-web-app',
+    iconName: 'Code'
+  },
+  {
+    id: 'wedding-video-photo',
+    number: '09',
+    title: 'Wedding Video & Photography',
+    shortDescription: 'Cinematic 4K wedding films, candid photography, and timeless celebration capture that tells your love story.',
+    fullDescription: 'From grand celebrations to intimate traditional moments, our cinema and photography team captures every emotion with 4K multi-camera setups, drone cinematography, candid portraiture, and heirloom album design.',
+    capabilities: [
+      'Cinematic Wedding Films & Teasers',
+      'Candid & Traditional Photography',
+      'Pre-Wedding & Couple Portraits',
+      'Drone Aerial Coverage & 4K Edits'
+    ],
+    image: balajiCateringImage,
+    href: '/services#wedding-video-photo',
+    iconName: 'Camera'
+  },
+  {
+    id: 'video-editing-production',
+    number: '10',
+    title: 'Video Editing & Production',
+    shortDescription: 'Commercial-grade video post-production, high-retention editing, color grading, and dynamic motion graphics.',
+    fullDescription: 'Transform raw footage into polished commercial masterpieces. We specialize in fast-paced storytelling, sound design, Hollywood-standard color grading, and motion graphics for brands, creators, and commercial campaigns.',
+    capabilities: [
+      'Commercial & Brand Video Editing',
+      'Color Grading & Audio Mastering',
+      'Motion Graphics & Title Animations',
+      'High-Retention YouTube & Ad Edits'
+    ],
+    image: aiVideosImage,
+    href: '/services#video-editing-production',
+    iconName: 'Film'
   },
   {
     id: 'complete-digital-marketing',
-    number: '09',
+    number: '11',
     title: 'Complete Digital Marketing',
     shortDescription: 'Bring strategy, creative, advertising, content, and digital execution together through one growth-focused partner.',
     fullDescription: 'Full-service digital growth execution. We become your extended marketing team, managing every touchpoint from organic content to paid acquisitions.',
@@ -152,5 +184,21 @@ export const servicesData: ServiceItem[] = [
     image: socialMediaStackImage,
     href: '/services#complete-digital-marketing',
     iconName: 'Zap'
+  },
+  {
+    id: 'performance-marketing-seo',
+    number: '12',
+    title: 'Performance Marketing & SEO',
+    shortDescription: 'Data-driven search engine optimization and conversion rate optimization to scale organic revenue.',
+    fullDescription: 'Dominate search rankings and turn clicks into loyal customers with technical SEO audits, high-intent keyword strategies, and conversion funnel optimization.',
+    capabilities: [
+      'Technical & On-Page SEO Audits',
+      'High-Intent Keyword Dominance',
+      'Conversion Rate Optimization (CRO)',
+      'ROI & Attribution Analytics'
+    ],
+    image: sivaBiryaniReportImage,
+    href: '/services#performance-marketing-seo',
+    iconName: 'TrendingUp'
   }
 ];

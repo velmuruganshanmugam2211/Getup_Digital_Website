@@ -19,3 +19,9 @@ export const NAV_LINKS = [
   { name: 'Team', href: '/team' },
   { name: 'Contact', href: '/contact' },
 ];
+
+export const GOOGLE_SHEETS_CONFIG = {
+  spreadsheetUrl: import.meta.env.VITE_GOOGLE_SHEETS_URL || 'https://docs.google.com/spreadsheets/d/1I6bKCpc9EDHiuCuCA02s30m6e3y3b6hXdB6WHsjjt7Y/edit?usp=sharing',
+  spreadsheetId: import.meta.env.VITE_GOOGLE_SHEETS_ID || '1I6bKCpc9EDHiuCuCA02s30m6e3y3b6hXdB6WHsjjt7Y',
+  scriptUrl: import.meta.env.VITE_GOOGLE_SHEETS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbx7quZ9ivXHxEWd64HC2AswvfuNqS1Z4AhZU6x-kdvoepmm8hZGQV5-boFxwXml5GZr/exec',
+};

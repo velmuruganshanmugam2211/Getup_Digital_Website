@@ -12,6 +12,10 @@ import {
   Bot,
   Globe,
   Zap,
+  Camera,
+  Film,
+  Code,
+  TrendingUp,
   CheckCircle2,
 } from "lucide-react";
 
@@ -34,6 +38,10 @@ export const ServicesPreview: React.FC = () => {
       case "Bot": return Bot;
       case "Globe": return Globe;
       case "Zap": return Zap;
+      case "Camera": return Camera;
+      case "Film": return Film;
+      case "Code": return Code;
+      case "TrendingUp": return TrendingUp;
       default: return Sparkles;
     }
   };
