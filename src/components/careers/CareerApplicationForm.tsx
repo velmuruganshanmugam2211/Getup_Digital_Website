@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { BRAND_INFO } from "../../lib/constants";
 import {
-  Send, CheckCircle2, AlertCircle, User, Phone, Mail, MapPin, GraduationCap, LinkIcon,
+  Send, CheckCircle2,  MessageCircle, AlertCircle, User, Phone, Mail, MapPin, GraduationCap, LinkIcon,
 } from "lucide-react";
 import { GOOGLE_SHEETS_CONFIG } from "../../lib/constants";
 
@@ -19,7 +20,7 @@ const INITIAL: FormState = {
 };
 
 const SOFTWARE_OPTIONS = [
-  "Adobe Premiere Pro", "DaVinci Resolve", "Final Cut Pro", "CapCut Pro", "After Effects", "Other",
+  "Adobe Premiere Pro", "DaVinci Resolve", "Final Cut Pro", "CapCut Pro", "After Effects", "Other", "Graphic Designer", "Content Creator"
 ];
 
 export const CareerApplicationForm: React.FC = () => {
@@ -99,8 +100,17 @@ export const CareerApplicationForm: React.FC = () => {
   }
 
   return (
-    <section id="career-form" className="py-16 sm:py-20 bg-[#F8FAF8]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="career-form" className="py-16 flex justify-center items-center sm:py-20 bg-[#F8FAF8]">
+      <a
+        href={`https://wa.me/${BRAND_INFO.whatsapp}?text=Hi%20Getup%20Digital%2C%20I%E2%80%99m%20interested%20in%20the%20Video%20Editor%20position%20and%20would%20like%20to%20apply%20for%20the%20opportunity.%20I%E2%80%99d%20love%20to%20share%20my%20work%20and%20discuss%20the%20role%20further.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center space-x-2 bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366]/20 border border-[#25D366]/30 px-8 py-5 rounded-full text-xs font-bold transition-all duration-200 shadow-2xs"
+      >
+        <Send className="w-7 h-7 text-[#128C7E]" />
+        <span className="text-lg" >Apply through WhatsApp</span>
+      </a>
+      {/* <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-xs font-bold uppercase tracking-widest text-[#008000] mb-2">Apply Now</p>
           <h2 className="text-3xl sm:text-4xl font-black text-[#111111] mb-3">Video Editor Application</h2>
@@ -208,7 +218,7 @@ export const CareerApplicationForm: React.FC = () => {
           </button>
           <p className="text-center text-[10px] text-[#888888]">Your details are confidential and used only for recruitment purposes.</p>
         </form>
-      </div>
+      </div> */}
     </section>
   );
 };
