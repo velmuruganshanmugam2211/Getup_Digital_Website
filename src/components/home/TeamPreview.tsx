@@ -46,7 +46,7 @@ export const TeamPreview: React.FC = () => {
             >
               <div>
                 {/* Large Hero Portrait Showcase */}
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-b from-[#F2F4F2] to-[#E5E9E5] border border-[#E5E7E5] shadow-xs group-hover:shadow-md transition-all duration-300">
+                {/* <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-b from-[#F2F4F2] to-[#E5E9E5] border border-[#E5E7E5] shadow-xs group-hover:shadow-md transition-all duration-300">
                   {member.image ? (
                     <img
                       src={member.image}
@@ -59,19 +59,19 @@ export const TeamPreview: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Dark Glassmorphic Founder Badge */}
+                 
                   <div className="absolute top-3.5 left-3.5 bg-[#111111]/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#008000] animate-pulse" />
                     <span>Founder</span>
                   </div>
 
-                  {/* Experience Badge */}
+                
                   <div className="absolute bottom-3.5 right-3.5 bg-white/95 backdrop-blur-md text-[#111111] text-[11px] font-bold px-3 py-1.5 rounded-full border border-white/80 shadow-md">
                     {member.experience}
                   </div>
-                </div>
+                </div> */}
 
-                {/* Name & Role */}
+              
                 <div className="mb-3">
                   <div className="flex items-center justify-between">
                     <h3 className="text-2xl font-black text-[#111111] tracking-tight group-hover:text-[#008000] transition-colors">
@@ -86,12 +86,12 @@ export const TeamPreview: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Bio Description */}
+              
                 <p className="text-xs sm:text-sm text-[#555555] leading-relaxed mb-6">
                   {member.description}
                 </p>
 
-                {/* Core Specialties */}
+                
                 <div className="space-y-2.5 mb-6">
                   <div className="text-[11px] font-bold uppercase tracking-wider text-[#111111] flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-[#008000]" />
